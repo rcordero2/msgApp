@@ -3,10 +3,12 @@ const app = express(); // define instance
 const http = require('http');
 const server = http.createServer(app);
 
-app.get('/', (req, res) => { // fuction that tells server what to do when a get request at given route is called
-  res.send('<h1>Hello world</h1>'); // req = http request object, res = http response object
+app.use(express.static("Public")); // serves static files such as css
+
+app.get('/', (req, res) => { // fuction that tells server what to do when a get request at given route is called, req = http request object, res = http response object
+  res.sendFile(__dirname + '/index.html');  
 });
 
-server.listen(3000, () => { // starts a port and host 
+server.listen(3000, () => { // starts a port and host, listens for request from client
   console.log('listening on *:3000');
 });
