@@ -10,9 +10,9 @@ app.get('/', (req, res) => { // fuction that tells server what to do when a get 
   res.sendFile(__dirname + '/index.html');  
 });
 
-io.on('connection', (socket) => {
-    socket.on('chat message', (msg) => {
-      console.log('message: ' + msg);
+io.on('connection', (socket) => { 
+    socket.on('chat message', (msg) => {// event listener
+      io.emit('chat message', msg) // broadcast msg to all clients
     });
   });
 
