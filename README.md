@@ -1,1 +1,1 @@
-# Creating a messaging app using socket.io and express framework
+# Creating a  basic messaging app using socket.io and express framework. The "Hello World" for socket.io.
